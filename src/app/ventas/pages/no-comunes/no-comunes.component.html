@@ -1,0 +1,40 @@
+<div class="text-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>
+        Pipes incluídos en Angular - Usualmente en el Common Module.
+    </p>
+</div>
+
+<div class="p-grid text-layout">
+    <div class="p-col p-md-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true" >
+            <p>
+                Saludos {{ nombre }}, es un placer 
+                {{ genero | i18nSelect: invitacionMapa }}
+                a nuestro evento.
+            </p>   
+            <button pButton
+                    label="Cambiar persona"
+                    class="p-button-help p-button-outlined"
+                    icon="pi pi-spin pi-refresh" iconPos="left"
+                    (click)="cambiarCliente( !elegido )"
+            >                
+            </button>         
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true" >
+            <p>
+                Actualmente  {{ clientes.length | i18nPlural: clientesMapa }}
+            </p>            
+            <button pButton
+                    label="Borrar cliente"
+                    class="p-button-danger p-button-outlined"
+                    icon="pi pi-spin pi-trash" iconPos="left" 
+                    (click)="borrarCliente()"           
+            >                
+            </button>
+        </p-fieldset>
+    </div>
+</div>
