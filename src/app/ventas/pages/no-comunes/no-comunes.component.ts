@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { interval } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-no-comunes',
@@ -41,5 +43,36 @@ export class NoComunesComponent {
   public borrarCliente(){
     this.clientes.pop();
   }
+ 
+  // KeyValue Pipe 
+  persona = {
+    nombre: 'Stefan',
+    edad: 26,
+    direccion: 'Ottawa, Canadá'
+  }
 
+  // JsonPipe
+  heroes = [
+    {
+      nombre: 'Superman',
+      vuela: true
+    },
+    {
+      nombre: 'Robin',
+      vuela: false
+    },
+    {
+      nombre: 'Aquaman',
+      vuela: false
+    }
+  ]
+
+  // Async Pipe
+  miObservable = interval(5000).pipe( tap( () => console.log('intervalo') ) );
+
+  valorPromesa = new Promise( (resolve, reject) => {
+    setTimeout( () => {
+      resolve('Tenemos data de promesa');
+    }, 3500);
+  });
 }
